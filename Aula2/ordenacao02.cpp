@@ -7,85 +7,83 @@ using namespace std;
 // Total de nomes
 #define TAM 3
 
-// Protótipos de função
+// Prototipos de funcao
 void trocar(string& a, string& b);
 int particao(string dados[], int inicio, int fim);
 void quickSort(string dados[], int inicio, int fim);
 
-
-// Função principal
-int main(){
+int main()
+{
     cout << "\nExemplo: Quick Sort" << endl;
     cout << endl;
 
-    // variáveis controle da saída
     int i;
 
-    //declara um array para armazenar os nomes
+    // Array para armazenar os nomes
     string nomes[TAM];
 
-    // Loop que realiza a entrada dos nomes
-    for ( i = 0; i < TAM; i++){
-        cout << "Informe o nome" << i + 1 << ": ";
+    // Entrada dos nomes
+    for (i = 0; i < TAM; i++)
+    {
+        cout << "Informe o nome " << i + 1 << ": ";
         getline(cin, nomes[i]);
     }
-    cout << "\n";
 
-    // Ordenação
-    // ordenação usando o quick sort
+    cout << endl;
+
+    // Mostra os nomes antes da ordenacao
+    cout << "Nomes antes da ordenacao:" << endl;
+    cout << endl;
+
+    i = 1;
+
+    for (const auto& nome : nomes)
+    {
+        cout << setw(2) << i << ". " << nome << endl;
+        i++;
+    }
+
+    cout << endl;
+
+    // Ordenacao usando Quick Sort
     quickSort(nomes, 0, TAM - 1);
 
-    // saída
-
-    //Imprime nomes depous da ordenação
-    cout << "Nomes depois da ordenacao: " << endl;
+    // Mostra os nomes depois da ordenacao
+    cout << "Nomes depois da ordenacao:" << endl;
     cout << endl;
 
-    // contador para os nomes
     i = 1;
 
-    //loop para imprimir nomes
-    for(const auto& nome : nomes){
+    for (const auto& nome : nomes)
+    {
         cout << setw(2) << i << ". " << nome << endl;
         i++;
     }
 
-    // ordenação
-    cout << "Nomes antes da ordenacao: " << endl;
     cout << endl;
-
-    // contador para os nomes
-    i = 1;
-
-    //loop para imprimir nomes
-    for(const auto& nome : nomes){
-        cout << setw(2) << i << ". " << nome << endl;
-        i++;
-    }
-
-    cout << "\n";
 
     return 0;
 }
 
-// definição das funcões
-
-// função para trocar o valor de duas strings
-void trocar(string& a, string& b){
+// Funcao para trocar duas strings
+void trocar(string& a, string& b)
+{
     string aux = a;
     a = b;
     b = aux;
 }
 
-// função de partição, que coloca o pivô no lugar correto e organiza os elementos menores
-// que o pivô à esquerda e os maiores a direita
-
-int particao(string dados[], int inicio, int fim) {
+// Funcao de particao
+int particao(string dados[], int inicio, int fim)
+{
     string pivo = dados[fim];
+
     int i = inicio - 1;
 
-    for(int j = inicio; j < fim; j++){
-        if(dados[j] < pivo){
+    for (int j = inicio; j < fim; j++)
+    {
+        if (dados[j] < pivo)
+        {
             i++;
             trocar(dados[i], dados[j]);
         }
@@ -96,9 +94,11 @@ int particao(string dados[], int inicio, int fim) {
     return i + 1;
 }
 
-//quicksort
-void quickSort(string dados[], int inicio, int fim){
-    if(inicio < fim) {
+// Quick Sort
+void quickSort(string dados[], int inicio, int fim)
+{
+    if (inicio < fim)
+    {
         int pivo = particao(dados, inicio, fim);
 
         quickSort(dados, inicio, pivo - 1);
