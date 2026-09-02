@@ -18,51 +18,60 @@ struct Pokemon{
 
 struct Treinador{
     string nome;
-    int hp;
+    string cidade;
+    Pokemon pokemon1;
+    Pokemon pokemon2;
+    Pokemon pokemon3;
 
 };
 
 int main(){
     cout << "\nExemplo pokemon\n" << endl;
 
-    // Aloca memória dinamicamente para uma estrutura do tipo Pokemon
-    Pokemon* ptrPokemon = new Pokemon;
+    Treinador treinador;
+    treinador.nome = "Ash Ketchum";
+    treinador.cidade = "Pallet Town";
 
-    // Atribui valores utilizando o ponteiro
-    ptrPokemon->nome = "Charmander";
-    ptrPokemon->tipo = "Fogo";
-    ptrPokemon->nivel = 1;
-    ptrPokemon->hp = 100;
+    cout << ">> Dados do treinador\n" << endl;
+    cout << "Nome: " << treinador.nome << endl;
+    cout << "Cidade: " << treinador.cidade << endl;
+    cout << endl;
 
-    // Acessa os valores utilizando o ponteiro
-    cout << ">> Dados do Pokemon\n" << endl;
-    cout << "Nome: " << ptrPokemon->nome << "\n";
-    cout << "Tipo: " << ptrPokemon->tipo << "\n";
-    cout << "Nivel: " << ptrPokemon->nivel << "\n";
-    cout << "HP: " << ptrPokemon->hp << "\n" << endl;
+    cout << ">> Pokemons do Treinador\n" << endl;
 
-    cout << ">> Um pokemon selvagem apareceu...\n" << endl;
-    cout << "Seu Charmander venceu uma luta muito dificil...";
-    cout << "Ele ganhou 50 pontos!\n";
+    treinador.pokemon1.nome = "Pikachu";
+    treinador.pokemon1.tipo = "Eletrico";
+    treinador.pokemon1.nivel = 40;
+    treinador.pokemon1.hp = 85;
 
-    // Aumenta o HP do Pokemon
-    ptrPokemon->aumentarHP(50);
+    cout << "Nome: " << treinador.pokemon1.nome << endl;
+    cout << "Tipo: " << treinador.pokemon1.tipo << endl;
+    cout << "Nivel: " << treinador.pokemon1.nivel << endl;
+    cout << "HP: " << treinador.pokemon1.hp << endl;
 
-    cout << "Olhe, o que esta acontecendo? Seu Charmander esta brilhando!\n";
+    cout << endl;
 
-    ptrPokemon->nivel++;
+    treinador.pokemon2.nome = "Greninja";
+    treinador.pokemon2.tipo = "Agua / Sombrio";
+    treinador.pokemon2.nivel = 35;
+    treinador.pokemon2.hp = 60;
 
-    cout << "O Charmander subiu de nivel\n\n";
+    cout << "Nome: " << treinador.pokemon2.nome << endl;
+    cout << "Tipo: " << treinador.pokemon2.tipo << endl;
+    cout << "Nivel: " << treinador.pokemon2.nivel << endl;
+    cout << "HP: " << treinador.pokemon2.hp << endl;
 
-    // Acessa os valores utilizando o ponteiro
-    cout << ">> Dados do Pokemon\n" << endl;
-    cout << "Nome: " << ptrPokemon->nome << "\n";
-    cout << "Tipo: " << ptrPokemon->tipo << "\n";
-    cout << "Nivel: " << ptrPokemon->nivel << "\n";
-    cout << "HP: " << ptrPokemon->hp << "\n" << endl;
+    cout << endl;
 
-    // Libera a memória utilizada pela estrutura
-    delete ptrPokemon;
+    treinador.pokemon3.nome = "Hawlucha";
+    treinador.pokemon3.tipo = "Lutador / Voador";
+    treinador.pokemon3.nivel = 32;
+    treinador.pokemon3.hp = 55;
+
+    cout << "Nome: " << treinador.pokemon3.nome << endl;
+    cout << "Tipo: " << treinador.pokemon3.tipo << endl;
+    cout << "Nivel: " << treinador.pokemon3.nivel << endl;
+    cout << "HP: " << treinador.pokemon3.hp << endl;
 
     return 0;
 }
